@@ -40,9 +40,3 @@ RISC0_DEV_MODE=1 cargo run
 ```bash
 RISC0_DEV_MODE=0 cargo run
 ```
-
-The host prints `User cycles` — this is the actual cycle count (as opposed to `total_cycles` which is padded to the segment boundary).
-
-## Performance
-
-With 20 orders and 7 fills, the matching engine runs in ~50k user cycles.

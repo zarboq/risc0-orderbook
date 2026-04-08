@@ -21,12 +21,12 @@ impl Input {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct OrderBook {
-    pub bids: BTreeMap<u64, VecDeque<Order>>,
-    pub asks: BTreeMap<u64, VecDeque<Order>>
+    pub bids: BTreeMap<u32, VecDeque<Order>>,
+    pub asks: BTreeMap<u32, VecDeque<Order>>
 }
 
 impl OrderBook {
-    pub fn new(bids: BTreeMap<u64, VecDeque<Order>>, asks: BTreeMap<u64, VecDeque<Order>>) -> Self {
+    pub fn new(bids: BTreeMap<u32, VecDeque<Order>>, asks: BTreeMap<u32, VecDeque<Order>>) -> Self {
         Self {bids, asks}
     }
 }
@@ -44,28 +44,28 @@ impl Output {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Order {
-    pub id: u64,
-    pub price: u64,  // fixed-point, e.g. 1000 = $10.00
-    pub qty: u64,
+    pub id: u32,
+    pub price: u32,
+    pub qty: u32,
     pub is_bid: bool,
 }
 
 impl Order {
-    pub fn new(id: u64, price: u64, qty: u64, is_bid: bool) -> Self {
+    pub fn new(id: u32, price: u32, qty: u32, is_bid: bool) -> Self {
         Self { id, price, qty, is_bid }
     }
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Trade {
-    pub buyer_id: u64,
-    pub seller_id: u64,
-    pub price: u64,
-    pub qty: u64
+    pub buyer_id: u32,
+    pub seller_id: u32,
+    pub price: u32,
+    pub qty: u32
 }
 
 impl Trade {
-    pub fn new(buyer_id: u64, seller_id: u64, price: u64, qty: u64) -> Self {
+    pub fn new(buyer_id: u32, seller_id: u32, price: u32, qty: u32) -> Self {
         Self { buyer_id, seller_id, price, qty }
     }
 }
