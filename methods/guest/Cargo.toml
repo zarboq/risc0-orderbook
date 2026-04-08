@@ -1,0 +1,12 @@
+[package]
+name = "training_r0"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[dependencies]
+risc0-zkvm = { version = "^3.0.5", default-features = false, features = ['std'] }
+serde = "1.0"
+core = { path = "../../core" }
+bincode = "1.3"
