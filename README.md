@@ -24,7 +24,7 @@ training_r0
 
 - **BTreeMap<u64, VecDeque<Order>>** for deterministic iteration (no HashMap in the guest).
 - **Price-time priority**: bids matched highest-first (`last_entry`), asks lowest-first (`first_entry`), FIFO within each price level.
-- **State root pattern**: only a 32-byte hash is committed to the journal; full state is sent privately. This is the same pattern used by Hibachi for chaining proofs across batches.
+- **State root pattern**: only a 32-byte hash is committed to the journal; full state is sent privately.
 - **Pre-allocated Vecs** and no `.clone()` on the hot path to minimize cycle count.
 
 ## Running
@@ -45,4 +45,4 @@ The host prints `User cycles` — this is the actual cycle count (as opposed to 
 
 ## Performance
 
-With 20 orders and 7 fills, the matching engine runs in ~285k user cycles — well under the 500k target.
+With 20 orders and 7 fills, the matching engine runs in ~50k user cycles.
